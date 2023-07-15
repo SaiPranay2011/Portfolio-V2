@@ -1,0 +1,37 @@
+@import "../styles/common/variables.scss";
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin:0;
+  padding: 0;
+}
+
+html,
+body {
+  // background-image: url("../assets/shutterstock_359492192.webp");
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  background-color: $ThemeColor;
+  color: $PrimaryColor;
+  font-family: "Open Sans";
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+:root{
+  --bar-width: 30px;
+  --bar-height: 3px;
+  --hamburger-gap: 6px;
+  --foreground: #20daaf;
+  --background: #0a192f;
+  --animation-timing: 200ms ease-in-out;
+  --hamburger-height: cal(var(--bar-height)*3 + var(--hamburger-gap)*2)
+  --hamburger-margin: 8px;
+
+}

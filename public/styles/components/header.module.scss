@@ -1,0 +1,25 @@
+@import "../common/variables.scss";
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0 150px;
+  .nameTag{
+    margin: 0px 0px 20px 10px;
+    font-size: clamp(14px,5vw,18px);
+    font-family: $SecondaryFont;
+  }
+  .name{
+    color: $SecondaryColor;
+    font-size: clamp(40px, 8vw, 70px);
+  }
+  .tagline{
+    font-size: clamp(30px, 8vw, 50px);
+    color: $taglineColor;
+    margin-top: 5px;
+  }
+
+}
+

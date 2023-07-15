@@ -1,0 +1,38 @@
+// Colors #20daaf
+$ThemeColor: #0a192f;
+$PrimaryColor: #20daaf;
+$SecondaryColor: #e7e9f1;
+$taglineColor: #a9b0c5;
+$menuBarColor: #112240;
+
+// Fonts
+$SecondaryFont: 'SF Mono','Fira Code','Fira Mono','Roboto Mono',monospace;
+
+// Heights
+$navHeight: 100px;
+
+// Font-Sizes
+$xxs : 12px;
+$xs: 13px;
+$sm: 14px;
+$md: 16px;
+$lr: 18px;
+
+//radius
+$border-radius: 4px;
+
+// Hamburger Menu
+$hamburgerWidth: 24px;
+$borderRadius: 4px;
+$hamBefore: opacity 0.15s ease, width 0.15s ease, top 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+$hamBeforeActive: opacity 0.1s ease-out, width 0.1s ease-out, top 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+$hamAfter: opacity 0.15s ease, transform 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19), bottom 0.15s ease;
+$hamAfterActive: opacity 0.1s ease-out, transform 0.1s cubic-bezier(0.215, 0.61, 0.355, 1), bottom 0.12s ease-out;
+
+//sideBar
+$fzSm: 14px;
+$fzLg: 24px;
+$fontMono: monospace;
+
+//transitions
+$SideBarTransition: all 0.3s ease-in-out;
