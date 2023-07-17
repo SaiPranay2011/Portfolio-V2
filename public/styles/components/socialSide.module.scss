@@ -1,0 +1,92 @@
+@import "../common/variables.scss";
+
+.socialContainer {
+  width: 40px;
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
+  color: $lightSlate;
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+.left {
+  left: 40px;
+  right: auto;
+  @media (max-width: 1080px) {
+    left: 20px;
+  }
+}
+
+.right {
+  right: 40px;
+  left: auto;
+  @media (max-width: 1080px) {
+    right: 20px;
+  }
+}
+
+.socialList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  &:after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 150px;
+    margin: 0 auto;
+    background-color: $lightSlate;
+  }
+  li {
+    padding: 10px;
+    &:last-of-type {
+      margin-bottom: 20px;
+    }
+    &:hover,
+    &:focus {
+      transform: translateY(-3px);
+      color: $PrimaryColor;
+    }
+ 
+      svg {
+        width: 20px;
+        height: 20px;
+    }
+  }
+}
+
+.emailList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  &:after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 150px;
+    margin: 0 auto;
+    background-color: $lightSlate;
+  }
+  a{
+    margin:20px auto;
+    padding: 10px;
+    font-family: $fontMono;
+    line-height: $fzLg;
+    font-size: $xxs;
+    letter-spacing: 0.1rem;
+    writing-mode: vertical-rl;
+    text-decoration: none;
+    &:hover,
+    &:focus {
+      transform: translateY(-3px);
+      color: $PrimaryColor;
+    }
+  }
+}

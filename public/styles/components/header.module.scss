@@ -5,7 +5,11 @@
   align-items: flex-start;
   justify-content: center;
   min-height: 100vh;
-  padding: 0 150px;
+  padding: 0;
+  @media (max-height: 700px) and (min-width: 700px), (max-width: 360px) {
+    height: auto;
+    padding-top: $navHeight;
+  }
   .nameTag{
     margin: 0px 0px 20px 10px;
     font-size: clamp(14px,5vw,18px);
@@ -23,3 +27,8 @@
 
 }
 
+.main.blur{
+    filter: blur(4px);
+    transition: $SideBarTransition;
+  
+}

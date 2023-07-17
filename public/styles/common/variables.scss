@@ -4,6 +4,8 @@ $PrimaryColor: #20daaf;
 $SecondaryColor: #e7e9f1;
 $taglineColor: #a9b0c5;
 $menuBarColor: #112240;
+$lightNavy:  #112240;
+$lightSlate: #a8b2d1;
 
 // Fonts
 $SecondaryFont: 'SF Mono','Fira Code','Fira Mono','Roboto Mono',monospace;
@@ -36,3 +38,4 @@ $fontMono: monospace;
 
 //transitions
 $SideBarTransition: all 0.3s ease-in-out;
+$transition:all 0.25s cubic-bezier(0.645,0.045,0.355,1);

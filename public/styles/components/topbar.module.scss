@@ -13,6 +13,9 @@
   pointer-events: auto !important;
   user-select: auto !important;
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+  @media (max-width:768px){
+    padding: 0 25px;
+  }
   .NavBar {
     display: flex;
     justify-content: space-between;
@@ -37,6 +40,11 @@
         padding: 0 10px 0 10px;
         text-decoration: none;
         color: $SecondaryColor;
+        &:hover,
+        &:focus{
+          color: $PrimaryColor;
+        }
+        
       }
       .link::before {
         content: "0" counter(item) ". ";
@@ -187,7 +195,7 @@
     width: min(75vw, 400px);
     height: 100vh;
     outline: 0;
-    background-color: $ThemeColor;
+    background-color: $lightNavy;
     box-shadow: -10px 0px 30px -15px $menuBarColor;
     z-index: 9;
     transform: translateX(100vw);
@@ -198,9 +206,7 @@
   .StyledSidebar.menuOpen{
     transform: translateX(0);
     visibility: visible;
-    .body{
-      transform: blur();
-    }
+    backdrop-filter: blur(10px);
   }
 .StyledSidebar nav {
   display: flex;
@@ -223,7 +229,7 @@
   position: relative;
   margin: 0 auto 20px;
   counter-increment: item 1;
-  font-size: clamp($fzSm, 4vw, $fzLg);
+  font-size: clamp($fzSm, 3vw, $fzLg);
 }
 
 @media (max-width: 600px) {
@@ -237,7 +243,7 @@
   display: block;
   margin-bottom: 5px;
   color: $PrimaryColor;
-  font-size: var(--fz-sm);
+  font-size: $sm;
 }
 
 .StyledSidebar ol li a {
@@ -248,10 +254,20 @@
   text-decoration: none;
 }
 
-.StyledSidebar .resume-link {
+.StyledSidebar .resumeLink {
   display: inline-block;
   padding: 18px 50px;
   margin: 10% auto 0;
   width: max-content;
+  background-color: transparent;
+  color: $PrimaryColor;
+  font-family: $fontMono;
+  line-height: 1;
+  cursor:pointer;
+  text-decoration: none;
+  border: 1px solid $PrimaryColor;
+  font-size: $md;
+  border-radius: $border-radius;
+  transition: $transition;
 }
 }

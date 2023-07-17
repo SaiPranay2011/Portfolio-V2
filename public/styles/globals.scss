@@ -26,12 +26,17 @@ body {
 
 :root{
   --bar-width: 30px;
-  --bar-height: 3px;
-  --hamburger-gap: 6px;
-  --foreground: #20daaf;
-  --background: #0a192f;
-  --animation-timing: 200ms ease-in-out;
-  --hamburger-height: cal(var(--bar-height)*3 + var(--hamburger-gap)*2)
-  --hamburger-margin: 8px;
-
 }
+
+a{
+  color: inherit;
+  transition: $transition;
+
+  // &:hover,
+  // &:focus{
+  //   color: $PrimaryColor;
+  // }
+}
+// .blur{
+//   filter: blur(4px); /* Adjust the blur intensity as needed */
+// }
