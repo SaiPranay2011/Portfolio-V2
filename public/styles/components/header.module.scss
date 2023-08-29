@@ -5,24 +5,29 @@
   align-items: flex-start;
   justify-content: center;
   min-height: 100vh;
-  padding: 0;
   @media (max-height: 700px) and (min-width: 700px), (max-width: 360px) {
     height: auto;
     padding-top: $navHeight;
+    padding: 0;
   }
   .nameTag{
-    margin: 0px 0px 20px 10px;
+    margin: 0px 0px 20px 0px;
     font-size: clamp(14px,5vw,18px);
     font-family: $SecondaryFont;
+    color: $PrimaryColor;
   }
   .name{
     color: $SecondaryColor;
-    font-size: clamp(40px, 8vw, 70px);
+    font-size: clamp(40px, 8vw, 80px);
   }
   .tagline{
-    font-size: clamp(30px, 8vw, 50px);
+    font-size: clamp(30px, 6vw, 50px);
     color: $taglineColor;
     margin-top: 5px;
+  }
+  .description{
+    margin: 20px 0px 0px;
+    max-width: 540px;
   }
 
 }

@@ -1,5 +1,4 @@
 @import "../styles/common/variables.scss";
-
 *,
 *::after,
 *::before {
@@ -10,12 +9,11 @@
 
 html,
 body {
-  // background-image: url("../assets/shutterstock_359492192.webp");
-  // background-repeat: no-repeat;
-  // background-size: cover;
   background-color: $ThemeColor;
-  color: $PrimaryColor;
-  font-family: "Open Sans";
+  color: $lightSlate;
+  font-family: $PrimaryFont;
+  font-size: $xl;
+  line-height: 1.3;
 
   ::-webkit-scrollbar {
     display: none;
@@ -32,11 +30,30 @@ a{
   color: inherit;
   transition: $transition;
 
-  // &:hover,
-  // &:focus{
-  //   color: $PrimaryColor;
-  // }
 }
 // .blur{
 //   filter: blur(4px); /* Adjust the blur intensity as needed */
 // }
+
+section{
+  padding: 100px 0;
+  margin: 0px auto;
+  max-width: 1000px;
+}
+
+.mainContainer{
+  padding: 0 20vw;
+  @media (max-width: 1080px){
+      padding: 0 100px;
+  }
+  @media (max-width: 768px){
+      padding: 0 50px;
+  }
+}
+
+p{
+  margin: 0px 0px 15px;
+  color: $slate;
+  font-size: $lr;
+}
+

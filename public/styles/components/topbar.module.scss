@@ -13,7 +13,7 @@
   pointer-events: auto !important;
   user-select: auto !important;
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-  @media (max-width:768px){
+  @media (max-width: 768px) {
     padding: 0 25px;
   }
   .NavBar {
@@ -24,27 +24,28 @@
     font-family: $SecondaryFont;
 
     .LogoImage {
-      padding: 1rem 0 0 1rem;
+      padding: 1rem 0 0 0rem;
     }
     .headerNav {
       display: flex;
       align-items: center;
       counter-reset: item 0;
-      
+
       .NavList {
         display: inline;
         counter-increment: item 1;
         list-style: none;
+        font-size: $md;
       }
       .link {
-        padding: 0 10px 0 10px;
+        padding: 10px;
         text-decoration: none;
         color: $SecondaryColor;
+
         &:hover,
-        &:focus{
+        &:focus {
           color: $PrimaryColor;
         }
-        
       }
       .link::before {
         content: "0" counter(item) ". ";
@@ -59,18 +60,22 @@
       border: 1px solid $PrimaryColor;
       padding: 0.75rem 1rem;
       margin-left: 15px;
-      font-size: 15px;
-      border-radius: $border-radius;
+      font-size: $md;
+      border-radius: $borderRadius;
     }
   }
 }
-.headerContainerHidden {
-  height: 70px;
-  transform: translateY(-70px);
-  box-shadow: 0 10px 30px -10px var(--navy-shadow);
-  transition: transform 0.2s;
+.headerContainerHiddenDown {
+  height: $navScrollHeight;
+  transform: translateY(calc($navScrollHeight * -1));
+  box-shadow: 0 10px 30px -10px $navyShadow;
 }
-
+.headerContainerHiddenup {
+  height: $navScrollHeight;
+  transform: translateY(0px);
+  background-color: rgba(10, 25, 47, 0.85);
+  box-shadow: 0 10px 30px -10px $navyShadow;
+}
 
 /* StyledHamburgerButton */
 .StyledHamburgerButton {
@@ -78,13 +83,12 @@
 }
 
 @media (max-width: 768px) {
-  .headerNav{
+  .headerNav {
     display: none !important;
   }
-  .resume{
+  .resume {
     display: none !important;
   }
-
 
   .StyledHamburgerButton {
     display: flex;
@@ -103,78 +107,77 @@
     transition-property: opacity, filter;
   }
 
+  .StyledHamburgerButton .hamBox {
+    display: inline-block;
+    position: relative;
+    width: $hamburgerWidth;
+    height: 24px;
+  }
 
-.StyledHamburgerButton .hamBox {
-  display: inline-block;
-  position: relative;
-  width: $hamburgerWidth;
-  height: 24px;
-}
+  .StyledHamburgerButton .hamBox .hamBoxInner {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: $hamburgerWidth;
+    height: 2px;
+    border-radius: $borderRadius;
+    background-color: $PrimaryColor;
+    transition-duration: 0.22s;
+    transition-property: transform;
+    transition-delay: 0s;
+    transform: rotate(0deg);
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
 
-.StyledHamburgerButton .hamBox .hamBoxInner {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  width: $hamburgerWidth;
-  height: 2px;
-  border-radius: $borderRadius;
-  background-color: $PrimaryColor;
-  transition-duration: 0.22s;
-  transition-property: transform;
-  transition-delay: 0s;
-  transform: rotate(0deg);
-  transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-}
+  .StyledHamburgerButton .hamBox .hamBoxInner:before,
+  .StyledHamburgerButton .hamBox .hamBoxInner:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: auto;
+    right: 0;
+    width: $hamburgerWidth;
+    height: 2px;
+    border-radius: 4px;
+    background-color: $PrimaryColor;
+    transition-timing-function: ease;
+    transition-duration: 0.15s;
+    transition-property: transform;
+  }
 
-.StyledHamburgerButton .hamBox .hamBoxInner:before,
-.StyledHamburgerButton .hamBox .hamBoxInner:after {
-  content: '';
-  display: block;
-  position: absolute;
-  left: auto;
-  right: 0;
-  width: $hamburgerWidth;
-  height: 2px;
-  border-radius: 4px;
-  background-color: $PrimaryColor;
-  transition-timing-function: ease;
-  transition-duration: 0.15s;
-  transition-property: transform;
-}
+  .StyledHamburgerButton .hamBox .hamBoxInner:before {
+    width: 120%;
+    top: -10px;
+    opacity: 1;
+    transition: $hamBefore;
+  }
 
-.StyledHamburgerButton .hamBox .hamBoxInner:before {
-  width: 120%;
-  top: -10px;
-  opacity: 1;
-  transition: $hamBefore;
-}
+  .StyledHamburgerButton .hamBox .hamBoxInner:after {
+    width: 120%;
+    bottom: -10px;
+    transform: rotate(0deg);
+    transition: $hamAfter;
+  }
 
-.StyledHamburgerButton .hamBox .hamBoxInner:after {
-  width: 120%;
-  bottom: -10px;
-  transform: rotate(0deg);
-  transition: $hamAfter;
-}
+  .StyledHamburgerButton.menuOpen .hamBox .hamBoxInner {
+    transform: rotate(225deg);
+    transition-delay: 0.12s;
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
 
-.StyledHamburgerButton.menuOpen .hamBox .hamBoxInner {
-  transform: rotate(225deg);
-  transition-delay: 0.12s;
-  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-}
+  .StyledHamburgerButton.menuOpen .hamBox .hamBoxInner:before {
+    width: 100%;
+    top: 0;
+    opacity: 0;
+    transition: $hamBeforeActive;
+  }
 
-.StyledHamburgerButton.menuOpen .hamBox .hamBoxInner:before {
-  width: 100%;
-  top: 0;
-  opacity: 0;
-  transition: $hamBeforeActive;
-}
-
-.StyledHamburgerButton.menuOpen .hamBox .hamBoxInner:after {
-  width: 100%;
-  bottom: 0;
-  transform: rotate(-90deg);
-  transition: $hamAfterActive;
-}
+  .StyledHamburgerButton.menuOpen .hamBox .hamBoxInner:after {
+    width: 100%;
+    bottom: 0;
+    transform: rotate(-90deg);
+    transition: $hamAfterActive;
+  }
 }
 
 /* StyledSidebar */
@@ -203,71 +206,71 @@
     transition: $SideBarTransition;
   }
 
-  .StyledSidebar.menuOpen{
+  .StyledSidebar.menuOpen {
     transform: translateX(0);
     visibility: visible;
     backdrop-filter: blur(10px);
   }
-.StyledSidebar nav {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  flex-direction: column;
-  color: $SecondaryColor;
-  font-family: $fontMono;
-  text-align: center;
-}
-
-.StyledSidebar ol {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  width: 100%;
-}
-
-.StyledSidebar ol li {
-  position: relative;
-  margin: 0 auto 20px;
-  counter-increment: item 1;
-  font-size: clamp($fzSm, 3vw, $fzLg);
-}
-
-@media (max-width: 600px) {
-  .StyledSidebar ol li {
-    margin: 0 auto 10px;
+  .StyledSidebar nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-direction: column;
+    color: $SecondaryColor;
+    font-family: $fontMono;
+    text-align: center;
   }
-}
 
-.StyledSidebar ol li:before {
-  content: '0' counter(item) '.';
-  display: block;
-  margin-bottom: 5px;
-  color: $PrimaryColor;
-  font-size: $sm;
-}
+  .StyledSidebar ol {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: 100%;
+  }
 
-.StyledSidebar ol li a {
-  display: inline-block;
-  width: 100%;
-  padding: 3px 20px 20px;
-  color: inherit;
-  text-decoration: none;
-}
+  .StyledSidebar ol li {
+    position: relative;
+    margin: 0 auto 20px;
+    counter-increment: item 1;
+    font-size: clamp($fzSm, 3vw, $fzLg);
+  }
 
-.StyledSidebar .resumeLink {
-  display: inline-block;
-  padding: 18px 50px;
-  margin: 10% auto 0;
-  width: max-content;
-  background-color: transparent;
-  color: $PrimaryColor;
-  font-family: $fontMono;
-  line-height: 1;
-  cursor:pointer;
-  text-decoration: none;
-  border: 1px solid $PrimaryColor;
-  font-size: $md;
-  border-radius: $border-radius;
-  transition: $transition;
-}
+  @media (max-width: 600px) {
+    .StyledSidebar ol li {
+      margin: 0 auto 10px;
+    }
+  }
+
+  .StyledSidebar ol li:before {
+    content: "0" counter(item) ".";
+    display: block;
+    margin-bottom: 5px;
+    color: $PrimaryColor;
+    font-size: $sm;
+  }
+
+  .StyledSidebar ol li a {
+    display: inline-block;
+    width: 100%;
+    padding: 3px 20px 20px;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .StyledSidebar .resumeLink {
+    display: inline-block;
+    padding: 18px 50px;
+    margin: 10% auto 0;
+    width: max-content;
+    background-color: transparent;
+    color: $PrimaryColor;
+    font-family: $fontMono;
+    line-height: 1;
+    cursor: pointer;
+    text-decoration: none;
+    border: 1px solid $PrimaryColor;
+    font-size: $md;
+    border-radius: $borderRadius;
+    transition: $transition;
+  }
 }

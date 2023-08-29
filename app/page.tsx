@@ -4,8 +4,10 @@ import TopBar from "@/components/TopBar/topbar";
 import Header from "@/components/Header/header";
 import Footer from "@/components/Footer/footer";
 import { useState } from "react";
+import fonts from "@/public/styles/common/fonts"
 import SideList from "@/components/Side";
-import styles from "@/public/styles/common/main.module.scss"
+import Sections from "@/components/Sections/section";
+
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -13,8 +15,9 @@ export default function Home() {
     <>
     <TopBar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
     <SideList />
-      <main className={styles.mainContainer}>     
+      <main className="mainContainer">     
         <Header menuOpen={menuOpen} />
+        <Sections/>
       </main>
       <Footer />
     </>

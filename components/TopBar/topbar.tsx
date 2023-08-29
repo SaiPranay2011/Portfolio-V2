@@ -5,29 +5,53 @@ import { FC, useEffect, useState } from "react";
 import cx from "classnames";
 import styles from "../../public/styles/components/topbar.module.scss";
 import { navLinks } from "@/public/config";
+import useScrollDirection from "@/hooks/useScrollDirection"
 // interface HeaderProps{
 //     name: string
 // }
 
 const TopBar = ({ setMenuOpen, menuOpen }: any) => {
-  const [navOpen, setNavOpen] = useState(false);
+  const [navClose, setnavClose] = useState("");
+  const scrollDirection = useScrollDirection('down');
+  const [scrolledToTop, setScrolledToTop] = useState(true);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", () => {
+  //     if (window.scrollY >=  + 80) {
+  //       setnavClose(true);
+  //     }
+  //     else{
+  //       setnavClose(false)
+  //     }
+  //   });
+  // }, [navClose]);
+  const handleScroll = () => {
+    setScrolledToTop(window.scrollY < 50);
+  };
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY >= 80) {
-        setNavOpen(true);
-      } else {
-        setNavOpen(false);
-      }
-    });
-  }, [navOpen]);
+    window.addEventListener("scroll",handleScroll)
+    return() => {
+      window.removeEventListener('scroll', handleScroll);
+    }
+  },[])
+  useEffect(() => {
+    if(scrollDirection === "up" && !scrolledToTop){
+      setnavClose(scrollDirection)
+    }
+    else if(scrollDirection === "down" && !scrolledToTop){
+      setnavClose(scrollDirection)
+    }
+  },[handleScroll])
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "unset";
+  }, [menuOpen]);
   return (
     <header
       className={
-        navOpen
-          ? cx(styles.headerContainer, styles.headerContainerHidden)
-          : styles.headerContainer
+        navClose === "down"
+          ? cx(styles.headerContainer, styles.headerContainerHiddenDown)
+          : cx(styles.headerContainer, styles.headerContainerHiddenUp)
       }>
       <nav className={styles.NavBar}>
         <div className={styles.LogoImage}>
@@ -41,34 +65,17 @@ const TopBar = ({ setMenuOpen, menuOpen }: any) => {
           </Link>
         </div>
         <div className={cx(styles.headerNav)}>
-          <ol>
-            <li className={styles.NavList}>
-              <Link href={`#about`} scroll={false} className={cx(styles.link)}>
-                About
-              </Link>
-            </li>
-            <li className={styles.NavList}>
-              <Link
-                href={`#experience`}
-                scroll={false}
-                className={cx(styles.link)}>
-                Experience
-              </Link>
-            </li>
-            <li className={styles.NavList}>
-              <Link href={`#work`} scroll={false} className={cx(styles.link)}>
-                Work
-              </Link>
-            </li>
-            <li className={styles.NavList}>
-              <Link
-                href={`#contact`}
-                scroll={false}
-                className={cx(styles.link)}>
-                Contact
-              </Link>
-            </li>
-          </ol>
+          {navLinks && (
+            <ol>
+              {navLinks.map(({ name, url }: any, i: any) => (
+                <li key={i} className={styles.NavList}>
+                  <Link href={url} className={cx(styles.link)}>
+                    {name}
+                  </Link>
+                </li>
+              ))}
+            </ol>
+          )}
         </div>
         <div className={styles.resume}>
           <Link
@@ -117,12 +124,12 @@ const TopBar = ({ setMenuOpen, menuOpen }: any) => {
               ))}
             </ol>
           )}
-            <Link
-              href={"/Resume.pdf"}
-              target="_blank"
-              className={styles.resumeLink}>
-              Resume
-            </Link>
+          <Link
+            href={"/Resume.pdf"}
+            target="_blank"
+            className={styles.resumeLink}>
+            Resume
+          </Link>
         </nav>
       </aside>
     </header>
