@@ -1,0 +1,118 @@
+ @import "../../common/variables.scss";
+.aboutContainer {
+    .workedCompanies {
+      color: $PrimaryColor;
+      transition: $transition;
+      text-decoration: none;
+    }
+    .aboutInner {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      grid-gap: 50px;
+      @media (max-width: 768px) {
+        display: block;
+      }
+    }
+  }
+  
+  ul.skillsList {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(140px, 200px));
+    grid-gap: 0 10px;
+    padding: 0;
+    margin: 20px 0 0 0;
+    overflow: hidden;
+    list-style: none;
+    li {
+      position: relative;
+      margin-bottom: 10px;
+      padding-left: 20px;
+      font-family: $fontMono;
+      font-size: $sm;
+  
+      &:before {
+        content: "▹";
+        position: absolute;
+        left: 0;
+        color: $PrimaryColor;
+        font-size: $sm;
+        line-height: 12px;
+      }
+    }
+  }
+  .styledPic {
+    position: relative;
+    width: 90%;
+    z-index: 2;
+    @media (max-width: 768px) {
+      margin: 50px auto 0;
+      width: 60%;
+    }
+  
+    .wrapper {
+      box-shadow: 0 10px 30px -15px $navyShadow;
+      transition: $transition;
+      &:hover,
+      &:focus-visible {
+        box-shadow: 0 20px 30px -15px $navyShadow;
+      }
+      display: flex;
+      position: relative;
+      width: 100%;
+      border-radius: $borderRadius;
+      background-color: $PrimaryColor;
+  
+      .MyImage {
+        width: 100%;
+        position: relative;
+        border-radius: $borderRadius;
+        mix-blend-mode: multiply;
+        filter: grayscale(100%) contrast(1);
+        transition: $transition;
+        z-index: 1;
+      }
+  
+      &:before,
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: $borderRadius;
+        transition: $transition;
+      }
+  
+      &:before {
+        top: 0;
+        left: 0;
+        background-color: $navy;
+        mix-blend-mode: screen;
+      }
+  
+      &:after {
+        border: 2px solid $PrimaryColor;
+        top: 20px;
+        left: 20px;
+        z-index: -1;
+      }
+  
+      &:hover,
+      &:focus {
+        outline: 0;
+        //   transform: translate(-4px, -4px);
+  
+        &:after {
+          // transform: translate(8px, 8px);
+          top: 15px;
+          left: 15px;
+        }
+  
+        .MyImage {
+          filter: none;
+          mix-blend-mode: normal;
+        }
+      }
+    }
+  }
+  

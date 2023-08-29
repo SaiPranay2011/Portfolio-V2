@@ -1,5 +1,6 @@
 import { jobs } from "@/public/config";
-import styles from "@/public/styles/components/sections.module.scss";
+import styles from "@/public/styles/components/sections/experience.module.scss";
+import mainStyles from "@/public/styles/components/sections.module.scss"
 import cx from "classnames";
 import Link from "next/link";
 import { useState } from "react";
@@ -8,7 +9,7 @@ const Experience = () => {
   const [firstActive, setFirstActive] = useState("Amal");
   return (
     <section id="jobs" className={styles.jobContainer}>
-      <h2 className={styles.numberedHeading}>Where I've Worked</h2>
+      <h2 className={mainStyles.numberedHeading}>Where I've Worked</h2>
       <div className={styles.jobInner}>
         <div className={styles.styledTabList}>
           {jobs &&

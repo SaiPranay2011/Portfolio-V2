@@ -1,12 +1,11 @@
-import styles from "@/public/styles/components/sections.module.scss";
-import mainStyles from "@/public/styles/common/main.module.scss";
+import styles from "@/public/styles/components/sections/about.module.scss";
+import mainStyles from "@/public/styles/components/sections.module.scss";
 import Link from "next/link";
-import Image from "next/image";
 import { skills } from "@/public/config";
 const About = () => {
   return (
     <section className={styles.aboutContainer} id="about">
-      <h2 className={styles.numberedHeading}>About me</h2>
+      <h2 className={mainStyles.numberedHeading}>About me</h2>
       <div className={styles.aboutInner}>
         <div className={styles.styledText}>
           <div>

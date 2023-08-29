@@ -1,8 +1,7 @@
 @import "../common/variables.scss";
+@import "../common//mixins.scss";
 .headerContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flexBetween;
   padding: 0 50px;
   position: fixed;
   width: 100%;
@@ -17,9 +16,7 @@
     padding: 0 25px;
   }
   .NavBar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flexBetween;
     width: 100%;
     font-family: $SecondaryFont;
 
@@ -58,7 +55,7 @@
       color: $PrimaryColor;
       text-decoration: none;
       border: 1px solid $PrimaryColor;
-      padding: 0.75rem 1rem;
+      padding: 0.5rem 0.75rem;
       margin-left: 15px;
       font-size: $md;
       border-radius: $borderRadius;
@@ -91,9 +88,7 @@
   }
 
   .StyledHamburgerButton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flexCenter;
     position: relative;
     z-index: 10;
     margin-right: -15px;
@@ -187,9 +182,7 @@
 
 @media (max-width: 768px) {
   .StyledSidebar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@include flexCenter;
     position: fixed;
     top: 0;
     bottom: 0;
