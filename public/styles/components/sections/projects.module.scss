@@ -353,9 +353,10 @@
     }
   }
 
-  .more-button {
+  .moreButton {
     @include button;
     margin: 80px auto 0;
+ 
   }
 }
 
@@ -379,6 +380,7 @@
     .projectBox {
       @include boxShadow;
       @include flexBetween;
+      cursor: pointer;
       flex-direction: column;
       align-items: flex-start;
       position: relative;
@@ -477,4 +479,172 @@
         }
       }
     }
+}
+
+// Archive Page
+.archiveMain{
+
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1600px;
+  min-height: 100vh;
+  padding:200px 150px;
+
+  @media (max-width: 1080px) {
+    padding: 200px 100px;
+  }
+  @media (max-width: 768px) {
+    padding: 150px 50px;
+  }
+  @media (max-width: 480px) {
+    padding: 125px 25px;
+  }
+}
+.archiveHeading {
+  margin: 0;
+  font-size: clamp(40px, 8vw, 80px);
+}
+.subtitle {
+  color: $PrimaryColor;
+  margin: 0 0 20px 0;
+  font-size: $md;
+  font-family: $SecondaryFont;
+  font-weight: 400;
+  line-height: 1.5;
+  @media (max-width: 1080px) {
+    font-size: $sm;
+  }
+  @media (max-width: 768px) {
+    font-size: $xs;
+  }
+
+  a {
+    @include inlineLink;
+    line-height: 1.5;
+  }
+}
+
+.archiveTable{
+  margin: 100px -20px;
+
+  @media (max-width: 768px) {
+    margin: 50px -10px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    .hideOnMobile {
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    tbody tr {
+      &:hover,
+      &:focus {
+        background-color: $lightNavy;
+      }   
+    }
+
+    th,
+    td {
+      padding: 10px;
+      text-align: left;
+
+      &:first-child {
+        padding-left: 20px;
+
+        @media (max-width: 768px) {
+          padding-left: 10px;
+        }
+      }
+      &:last-child {
+        padding-right: 20px;
+
+        @media (max-width: 768px) {
+          padding-right: 10px;
+        }
+      }
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    tr {
+      cursor: default;
+
+      td:first-child {
+        border-top-left-radius: $borderRadius;
+        border-bottom-left-radius: $borderRadius;
+      }
+      td:last-child {
+        border-top-right-radius: $borderRadius;
+        border-bottom-right-radius: $borderRadius;
+      }
+    }
+    // th{
+    //   .
+    // }
+
+    td {
+      &.year {
+        padding-right: 20px;
+
+        @media (max-width: 768px) {
+          padding-right: 10px;
+          font-size: $sm;
+        }
+      }
+
+      &.archiveTitle{
+        padding-top: 15px;
+        padding-right: 20px;
+        color: $lightestSlate;
+        font-size: $xl;
+        font-weight: 600;
+        line-height: 1.25;
+        font-family: $PrimaryFont;
+      }
+
+      &.company {
+        font-size: $lr;
+        white-space: nowrap;
+        font-family: $SecondaryFont;
+      }
+
+      &.tech {
+        font-size: $xxs;
+        font-family: $SecondaryFont;
+        line-height: 1.5;
+        .separator {
+          margin: 0 5px;
+        }
+        span {
+          display: inline-block;
+        }
+      }
+
+      &.links {
+        min-width: 100px;
+
+        div {
+          display: flex;
+          align-items: center;
+
+          a {
+          @include flexCenter;
+            flex-shrink: 0;
+          }
+
+          a + a {
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  }
 }
