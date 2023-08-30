@@ -6,7 +6,7 @@ const Header = ({menuOpen}:any) => {
       <h2 className={styles.nameTag}>Hi, My name is</h2>
       <h1 className={styles.name}>Sai Pranay C.</h1>
       <h3 className={styles.tagline}>Code something that makes you think.</h3>
-      <p className={styles.description}>I'm a software engineer specializing in building (and occasionally designing) exceptional digital experiences. Currently, I'm focused on building accessible, human-centered products at Upstatement.</p>
+      <p className={styles.description}>I'm a software engineer specializing in building (and occasionally designing) exceptional digital experiences. Currently, I'm focused on building accessible, human-centered products</p>
     </div>
   );
 };

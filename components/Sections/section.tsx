@@ -3,6 +3,7 @@ import Experience from "./experience";
 import styles from "@/public/styles/components/sections.module.scss"
 import FeaturedProjects from "./featured";
 import Projects from "./projects";
+import Contact from "./contact";
 const Sections = () => {
   return (
     <div className={styles.sections}>
@@ -10,6 +11,7 @@ const Sections = () => {
       <Experience/>
       <FeaturedProjects/>
       <Projects/>
+      <Contact/>
     </div>
   );
 };

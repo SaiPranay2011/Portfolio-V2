@@ -4,7 +4,7 @@
 *::after,
 *::before {
   box-sizing: border-box;
-  margin:0;
+  margin: 0;
   padding: 0;
 }
 
@@ -23,46 +23,58 @@ body {
   scrollbar-width: none;
 }
 
-:root{
+:root {
   --bar-width: 30px;
 }
 
-a{
+a {
   display: inline-block;
   text-decoration: none;
   text-decoration-skip-ink: auto;
   color: inherit;
   position: relative;
   transition: $transition;
-  &:hover,&:focus{
+  &:hover,
+  &:focus {
     color: $PrimaryColor;
   }
 }
 // .blur{
 //   filter: blur(4px); /* Adjust the blur intensity as needed */
 // }
-li{
+li {
   list-style-type: none;
 }
-section{
+
+section {
   padding: 100px 0;
   margin: 0px auto;
   max-width: 900px;
 }
 
-.mainContainer{
+.mainContainer {
   padding: 0 20vw;
-  @media (max-width: 1080px){
-      padding: 0 100px;
+  @media (max-width: 1080px) {
+    padding: 0 100px;
   }
-  @media (max-width: 768px){
-      padding: 0 50px;
+  @media (max-width: 768px) {
+    padding: 0 50px;
   }
 }
 
-p{
+p {
   margin: 0px 0px 15px;
   color: $slate;
   font-size: $lr;
 }
 
+.blur {
+  filter: blur(4px);
+  transition: $SideBarTransition;
+}
+// .overline {
+//   color: $PrimaryColor;
+//   font-family: $SecondaryFont;
+//   font-size: $md;
+//   font-weight: 400;
+// }

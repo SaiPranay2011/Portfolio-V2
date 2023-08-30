@@ -37,11 +37,11 @@
     background-color: transparent;
     border: 1px solid $PrimaryColor;
     border-radius:$borderRadius;
-    font-size: $xs;
+    font-size: $sm;
     font-family: $SecondaryFont;
     line-height: 1;
     text-decoration: none;
-    padding: 1.25rem 1.75rem;
+    padding: 1rem 1.5rem;
     transition: $transition;
 
     &:hover,
@@ -53,6 +53,28 @@
     &:after {
       display: none !important;
     }
+}
+@mixin bigButton{
+  color: $PrimaryColor;
+  background-color: transparent;
+  border: 1px solid $PrimaryColor;
+  border-radius: $borderRadius;
+  padding: 1.25rem 1.75rem;
+  font-size: $sm;
+  font-family: $SecondaryFont;
+  line-height: 1;
+  text-decoration: none;
+  transition: $transition;
+
+  &:hover,
+  &:focus-visible {
+    outline: none;
+    box-shadow: 4px 4px 0 0 $PrimaryColor;
+    transform: translate(-5px, -5px);
+  }
+  &:after {
+    display: none !important;
+  }
 }
 @mixin resetList{
   list-style: none;

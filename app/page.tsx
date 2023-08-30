@@ -7,6 +7,7 @@ import { useState } from "react";
 import fonts from "@/public/styles/common/fonts"
 import SideList from "@/components/Side";
 import Sections from "@/components/Sections/section";
+import cx from "classnames";
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,8 +16,8 @@ export default function Home() {
     <>
     <TopBar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
     <SideList />
-      <main className="mainContainer">     
-        <Header menuOpen={menuOpen} />
+      <main className={cx("mainContainer",{["blur"]:menuOpen})}>     
+        <Header/>
         <Sections/>
       </main>
       <Footer />
