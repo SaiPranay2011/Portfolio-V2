@@ -1,0 +1,174 @@
+@import "../../common/variables.scss";
+@import "../../common/mixins.scss";
+.jobContainer {
+  .jobInner {
+    display: flex;
+
+    @media (max-width: 600px) {
+      display: block;
+    }
+
+    @media (min-width: 700px) {
+      min-height: 340px;
+    }
+  }
+  .styledTabList {
+    position: relative;
+    z-index: 3;
+    width: max-content;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    @media (max-width: 600px) {
+      display: flex;
+      overflow-x: auto;
+      width: calc(100% + 100px);
+      padding-left: 50px;
+      margin-left: -50px;
+      margin-bottom: 30px;
+    }
+    @media (max-width: 480px) {
+      width: calc(100% + 50px);
+      padding-left: 25px;
+      margin-left: -25px;
+    }
+
+    li {
+      &:first-of-type {
+        @media (max-width: 600px) {
+          margin-left: 50px;
+        }
+        @media (max-width: 480px) {
+          margin-left: 25px;
+        }
+      }
+      &:last-of-type {
+        @media (max-width: 600px) {
+          padding-right: 50px;
+        }
+        @media (max-width: 480px) {
+          padding-right: 25px;
+        }
+      }
+    }
+  }
+
+  .styledTabButton {
+    display: inline-block;
+    text-decoration: none;
+    text-decoration-skip-ink: auto;
+    color: inherit;
+    position: relative;
+    transition: $transition;
+    border: none;
+    &:hover,
+    &:focus-visible {
+      color: $PrimaryColor;
+      outline: 0;
+    }
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: $tabHeight;
+    padding: 0 25px 2px;
+    border-left: 2px solid $lightestNavy;
+    background-color: transparent;
+    color: $slate;
+    font-family: $SecondaryFont;
+    font-size: $md;
+    text-align: left;
+    white-space: nowrap;
+
+    @media (max-width: 768px) {
+      padding: 0 20px 2px;
+    }
+    @media (max-width: 600px) {
+      @include flexCenter;
+      min-width: 100px;
+      padding: 0 15px;
+      border-left: 0;
+      border-bottom: 2px solid $lightestNavy;
+      text-align: center;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: $lightNavy;
+    }
+  }
+  .isActiveTabButton {
+    color: $PrimaryColor;
+    border-left: 2px solid $PrimaryColor !important;
+    @media (max-width: 600px) {
+      border-left: none !important;
+      border-top: 2px solid $PrimaryColor !important;
+    }
+  }
+  .firstActiveButton {
+    color: $PrimaryColor;
+    background-color: $lightNavy;
+  }
+}
+
+.styledTabPanels {
+  position: relative;
+  width: 100%;
+  margin-left: 40px;
+
+  @media (max-width: 600px) {
+    margin-left: 0;
+  }
+
+  .styledTabPanel {
+    width: 100%;
+    height: auto;
+    padding: 0px 5px;
+
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      font-size: $lr;
+      li {
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 10px;
+        &:before {
+          content: "▹";
+          position: absolute;
+          left: 0;
+          color: $PrimaryColor;
+        }
+      }
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: $xxl;
+      font-weight: 500;
+      line-height: 1.3;
+      .title {
+        color: $lightestSlate;
+      }
+      .company {
+        color: $PrimaryColor !important;
+      }
+    }
+    .range {
+      color: $lightSlate;
+      margin-bottom: 25px;
+      font-family: $SecondaryFont;
+      font-size: $xs;
+    }
+    .location {
+      margin-left: 25px;
+      color: $lightSlate;
+      font-family: $SecondaryFont;
+      font-size: $xs;
+    }
+  }
+  .notVisible {
+    display: none;
+  }
+}

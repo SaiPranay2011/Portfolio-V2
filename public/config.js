@@ -87,4 +87,51 @@ module.exports = {
        
     }
   ],
+
+  featuredProjects:[
+    {
+      title:"Portfolio-V1",
+      cover:"/assets/Projects/portfolioV1.png",
+      github:"https://github.com/SaiPranay2011/Portfolio-V1",
+      external:"",
+      tech:[
+        "React",
+        "CSS"
+      ],
+      description:"A Personal Portfolio Version-1 developed by using web technology ReactJS. Portfolio comprise of my personal information and my projects."
+    },
+  ],
+  projects:[
+    {
+      title:"Amal web and mobile application",
+      external:"https://www.amal.com/en",
+      tech:[
+        "NextJS",
+        "ReactNative",
+        "Firebase",
+        "Jira",
+      ],
+      company:"Amal",
+      showInProjects: true,
+    },
+    {
+      title: "MerchWorld",
+      tech:[
+        "React",
+        "FastAPI"
+      ],
+      showInProjects:true,
+      description:"The website acts as a centralised platform for actors, musicians, YouTubers, and other artists to showcase and sell their items globally"
+    },
+    {
+      title: "Meble",
+      tech:[
+        "Java",
+        "XML",
+        "Android Studio"
+      ],
+      showInProjects:false,
+      description:"An app designed using Java and Android Studio which enables users to select from a wide range of traditional and contemporary furniture to improve their aesthetic appearance of their commercial or private property."
+    }
+  ]
 };

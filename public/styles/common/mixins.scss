@@ -1,0 +1,61 @@
+
+@mixin flexCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin flexBetween{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@mixin boxShadow{
+  box-shadow: 0 10px 30px -15px $navyShadow;
+  transition: $transition;
+
+  &:hover,
+  &:focus-visible {
+    box-shadow: 0 20px 30px -15px $navyShadow;
+  }
+}
+@mixin inlineLink{
+  display: inline-block;
+  text-decoration: none;
+  text-decoration-skip-ink: auto;
+  color: inherit;
+  position: relative;
+  transition: $transition;
+
+  &:hover,
+  &:focus-visible {
+    color: $PrimaryColor;
+    outline: 0;
+  }
+}
+@mixin button{
+  color: $PrimaryColor;
+    background-color: transparent;
+    border: 1px solid $PrimaryColor;
+    border-radius:$borderRadius;
+    font-size: $xs;
+    font-family: $SecondaryFont;
+    line-height: 1;
+    text-decoration: none;
+    padding: 1.25rem 1.75rem;
+    transition: $transition;
+
+    &:hover,
+    &:focus-visible {
+      outline: none;
+      box-shadow: 4px 4px 0 0 $PrimaryColor;
+      transform: translate(-5px, -5px);
+    }
+    &:after {
+      display: none !important;
+    }
+}
+@mixin resetList{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
