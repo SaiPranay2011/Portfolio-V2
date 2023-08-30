@@ -2,13 +2,12 @@ import { useEffect, useState } from "react";
 import styles from "@/public/styles/components/footer.module.scss";
 import { socialMedia, github } from "@/public/config";
 import Icon from "../icons/icon";
-
+import cx from "classnames";
 const Footer = () => {
   const [githubInfo, setGitHubInfo] = useState({
     stars: null,
     forks: null,
   });
-  
   useEffect(() => {
     fetch("https://api.github.com/repos/SaiPranay2011/Portfolio-V2")
     .then(response => response.json())
@@ -24,7 +23,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer id="footer" className={styles.footerContainer}>
+    <footer id="footer" className={cx(styles.footerContainer,)}>
       <div className={styles.footerSocialLinks}>
         <ul>
           {socialMedia &&

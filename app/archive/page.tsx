@@ -3,6 +3,7 @@ import { useState } from "react";
 import styles from "@/public/styles/components/sections/projects.module.scss";
 import TopBar from "@/components/TopBar/topbar";
 import SideList from "@/components/Side";
+import Footer from "@/components/Footer/footer";
 import { archiveProjects } from "@/public/config";
 import cx from "classnames";
 import Icon from "@/components/icons/icon";
@@ -10,15 +11,15 @@ const Archive = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <>
+    <main>
       <TopBar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <SideList />
-      <main className={styles.archiveMain}>
-        <main>
+      <main className={cx({["blur"]:menuOpen})}>
+        <main className={styles.archiveMain}>
           <header>
             <h1 className={styles.archiveHeading}>Archive</h1>
             <p className={styles.subtitle}>
-              A big list of things I’ve worked on
+              A big list of things I've worked on
             </p>
           </header>
           <div className={styles.archiveTable}>
@@ -80,8 +81,9 @@ const Archive = () => {
             </table>
           </div>
         </main>
+        <Footer/>
       </main>
-    </>
+    </main>
   );
 };
 export default Archive;

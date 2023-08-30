@@ -19,8 +19,9 @@ export default function Home() {
       <main className={cx("mainContainer",{["blur"]:menuOpen})}>     
         <Header/>
         <Sections/>
+        <Footer/>
       </main>
-      <Footer />
+      
     </>
   );
 }
