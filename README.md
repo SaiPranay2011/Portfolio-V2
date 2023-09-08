@@ -3,7 +3,6 @@
 
 <div align="center">
   <img alt="Logo" src="https://raw.githubusercontent.com/SaiPranay2011/Portfolio-V2/master/public/assets/Logo/sp-logo.png" width="100" />
-  https://github.com/SaiPranay2011/Portfolio-V2/master/public/assets/Logo/logo-no-background.svg
 </div>
 <h1 align="center">
   Sai Pranay Portfolio - V1
