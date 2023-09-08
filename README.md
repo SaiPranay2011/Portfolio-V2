@@ -11,7 +11,7 @@
   The second iteration of Portfolio built with NextJs and hosted with Github pages
 </p>
 
-![demo](https://raw.githubusercontent.com/SaiPranay2011/Portfolio-V2/master/public/assets/portfolioV2.png)
+![demo](https://raw.githubusercontent.com/SaiPranay2011/Portfolio-V2/master/public/assets/PortfolioV2.png)
 
 ## Built With
 
