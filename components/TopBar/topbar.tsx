@@ -57,7 +57,7 @@ const TopBar = ({ setMenuOpen, menuOpen }: any) => {
         <div className={styles.LogoImage}>
           <Link href={`/`}>
             <img
-              src={"/assets/Logo/logo-no-background.svg"}
+              src={"./assets/Logo/logo-no-background.svg"}
               alt="SP"
               height={60}
               width={60}
