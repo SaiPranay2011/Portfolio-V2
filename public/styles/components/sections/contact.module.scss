@@ -1,0 +1,45 @@
+@import "../../common/variables.scss";
+@import "../../common/mixins.scss";
+.contactContainer{
+    max-width: 600px;
+  margin: 0 auto 100px;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    margin: 0 auto 50px;
+  }
+
+  .overline {
+    display: block;
+    margin-bottom: 20px;
+    color: $PrimaryColor;
+    font-family: $SecondaryFont;
+    font-size: $lr;
+    font-weight: 600;
+
+    &:before {
+      bottom: 0;
+      font-size: $lr;
+    }
+
+    &:after {
+      display: none;
+    }
+  }
+
+  .title {
+    font-size: clamp(40px, 5vw, 60px);
+    margin: 0px 0px 10px;
+    font-weight: 600;
+    color: $SecondaryColor;
+    line-height: 1.1;
+  }
+  .contactText{
+    margin: 10px
+
+  }
+  .emailLink {
+    @include bigButton;
+    margin-top: 50px;
+  }
+}

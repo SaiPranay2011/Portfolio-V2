@@ -1,0 +1,56 @@
+@import "../common/variables.scss";
+.sections {
+  counter-reset: section 0;
+  .numberedHeading {
+    // display: flex;
+    // align-items: center;
+    position: relative;
+    margin: 10px 0 40px;
+    width: 100%;
+    font-family: $PrimaryFont;
+    color: $lightestSlate;
+    font-weight: 600;
+    font-size: clamp(26px, 2.5vw, $fzHeading);
+    white-space: nowrap;
+    color: $SecondaryColor;
+    counter-increment: section 1;
+
+    &:before {
+      position: relative;
+      //   bottom: 4px;
+
+      content: "0" counter(section) ".";
+      margin-right: 10px;
+      color: $PrimaryColor;
+      font-family: $fontMono;
+      font-size: 25px;
+      font-weight: 400;
+
+      @media (max-width: 480px) {
+        margin-bottom: -3px;
+        margin-right: 5px;
+      }
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      position: relative;
+      bottom: -2px;
+      width: 300px;
+      height: 1px;
+      margin-left: 20px;
+      background-color: $lightNavy;
+
+      @media (max-width: 1080px) {
+        width: 200px;
+      }
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+      @media (max-width: 600px) {
+        margin-left: 10px;
+      }
+    }
+  }
+}

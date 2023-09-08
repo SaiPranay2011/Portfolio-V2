@@ -1,87 +1,63 @@
 "use client";
 
 import Link from "next/link";
-import { FC, useEffect, useState} from "react";
+import { FC, useEffect, useState } from "react";
 import cx from "classnames";
 import styles from "../../public/styles/components/topbar.module.scss";
-import logo from "../../public/assets/logo-color.svg";
-import styled from "styled-components";
-
+import { navLinks } from "@/public/config";
+import useScrollDirection from "@/hooks/useScrollDirection"
 // interface HeaderProps{
 //     name: string
 // }
-// const MenuHamburgerButton = styled.button`
-//   display: none;
 
-//   @media (max-width: 768px) {
-//     ${({ theme }) => theme?.mixins?.flexCenter};
-//     position: relative;
-//     z-index: 10;
-//     margin-right: -15px;
-//     padding: 15px;
-//     border: 0;
-//     background-color: transparent;
-//     color: inherit;
-//     text-transform: none;
-//     transition-timing-function: linear;
-//     transition-duration: 0.15s;
-//     transition-property: opacity, filter;
-//   }
-
-//   .hamBox {
-//     display: inline-block;
-//     position: relative;
-//     width: var(--hamburger-width);
-//     height: 24px;
-//   }
-
-//   .hamBoxInner {
-//     position: absolute;
-//     top: 50%;
-//     right: 0;
-//     width: var(--hamburger-width);
-//     height: 2px;
-//     border-radius: var(--border-radius);
-//     background-color: var(--green);
-//     transition-duration: 0.22s;
-//     transition-property: transform;
-//     transition-delay: ${(props) => (props.menuOpen ? `0.12s` : `0s`)};
-//     transform: rotate(${(props) => (props.menuOpen ? `225deg` : `0deg`)});
-//     transition-timing-function: cubic-bezier(
-//       ${(props) =>
-//         props.menuOpen ? `0.215, 0.61, 0.355, 1` : `0.55, 0.055, 0.675, 0.19`}
-//     );
-//   }
-// `;
-const TopBar = () => {
-  
-  // useOnClickOutside(wrapperRef, () => setMenuOpen(false));
-
-  const [navOpen, setNavOpen] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+const TopBar = ({ setMenuOpen, menuOpen }: any) => {
+  const [navClose, setnavClose] = useState("");
+  const scrollDirection = useScrollDirection('down');
+  const [scrolledToTop, setScrolledToTop] = useState(true);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", () => {
+  //     if (window.scrollY >=  + 80) {
+  //       setnavClose(true);
+  //     }
+  //     else{
+  //       setnavClose(false)
+  //     }
+  //   });
+  // }, [navClose]);
+  const handleScroll = () => {
+    setScrolledToTop(window.scrollY < 50);
+  };
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY >= 80) {
-        setNavOpen(true);
-      } else {
-        setNavOpen(false);
-      }
-    });
-  }, [navOpen]);
+    window.addEventListener("scroll",handleScroll)
+    return() => {
+      window.removeEventListener('scroll', handleScroll);
+    }
+  },[])
+  useEffect(() => {
+    if(scrollDirection === "up" && !scrolledToTop){
+      setnavClose(scrollDirection)
+    }
+    else if(scrollDirection === "down" && !scrolledToTop){
+      setnavClose(scrollDirection)
+    }
+  },[handleScroll])
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "unset";
+  }, [menuOpen]);
   return (
     <header
       className={
-        navOpen
-          ? cx(styles.headerContainer, styles.headerContainerHidden)
-          : styles.headerContainer
+        navClose === "down"
+          ? cx(styles.headerContainer, styles.headerContainerHiddenDown)
+          : cx(styles.headerContainer, styles.headerContainerHiddenUp)
       }>
       <nav className={styles.NavBar}>
         <div className={styles.LogoImage}>
           <Link href={`/`}>
             <img
-              src={"/assets/logo-no-background.svg"}
+              src={"/assets/Logo/logo-no-background.svg"}
               alt="SP"
               height={60}
               width={60}
@@ -89,39 +65,17 @@ const TopBar = () => {
           </Link>
         </div>
         <div className={cx(styles.headerNav)}>
-          <ol>
-            <li className={styles.NavList}>
-              <Link href={`#home`} scroll={false} className={cx(styles.link)}>
-                Home
-              </Link>
-            </li>
-            <li className={styles.NavList}>
-              <Link href={`#about`} scroll={false} className={cx(styles.link)}>
-                About
-              </Link>
-            </li>
-            <li className={styles.NavList}>
-              <Link
-                href={`#experience`}
-                scroll={false}
-                className={cx(styles.link)}>
-                Contact
-              </Link>
-            </li>
-            <li className={styles.NavList}>
-              <Link href={`#work`} scroll={false} className={cx(styles.link)}>
-                Work
-              </Link>
-            </li>
-            <li className={styles.NavList}>
-              <Link
-                href={`#contact`}
-                scroll={false}
-                className={cx(styles.link)}>
-                Contact
-              </Link>
-            </li>
-          </ol>
+          {navLinks && (
+            <ol>
+              {navLinks.map(({ name, url }: any, i: any) => (
+                <li key={i} className={styles.NavList}>
+                  <Link href={url} className={cx(styles.link)}>
+                    {name}
+                  </Link>
+                </li>
+              ))}
+            </ol>
+          )}
         </div>
         <div className={styles.resume}>
           <Link
@@ -149,23 +103,34 @@ const TopBar = () => {
         className={cx(styles.StyledHamburgerButton, {
           [styles.menuOpen]: menuOpen,
         })}
-        onClick={() => {
-          setMenuOpen(!menuOpen);
-        }}
+        onClick={toggleMenu}
         aria-label="Menu">
         <div className={styles.hamBox}>
           <div className={styles.hamBoxInner} />
         </div>
       </button>
-      <aside className={cx(styles.StyledSidebar,{[styles.menuOpen] : menuOpen})} aria-hidden={!menuOpen}>
+      <aside
+        className={cx(styles.StyledSidebar, { [styles.menuOpen]: menuOpen })}
+        aria-hidden={!menuOpen}>
         <nav>
-          <ol>
-             <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-          </ol>
+          {navLinks && (
+            <ol>
+              {navLinks?.map(({ url, name }: any, i: any) => (
+                <li key={i}>
+                  <Link href={url} onClick={() => setMenuOpen(false)}>
+                    {name}
+                  </Link>
+                </li>
+              ))}
+            </ol>
+          )}
+          <Link
+            href={"/Resume.pdf"}
+            target="_blank"
+            className={styles.resumeLink}>
+            Resume
+          </Link>
         </nav>
-
       </aside>
     </header>
   );
