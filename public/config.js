@@ -91,7 +91,7 @@ module.exports = {
   featuredProjects: [
     {
       title: "Portfolio-V1",
-      cover: "/assets/Projects/portfolioV1.png",
+      cover: "./assets/Projects/portfolioV1.png",
       github: "https://github.com/SaiPranay2011/Portfolio-V1",
       external: "",
       tech: ["React", "CSS"],
