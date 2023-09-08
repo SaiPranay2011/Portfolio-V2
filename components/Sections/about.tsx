@@ -36,7 +36,7 @@ const About = () => {
           <div className={styles.wrapper}>
             <img
               className={styles.MyImage}
-              src="/assets/MyPicture.png"
+              src={`${process.env.NEXT_PUBLIC_PROFILE_IMAGE}MyPicture.png`}
               alt="Picture"
             />
           </div>
