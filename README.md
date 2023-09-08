@@ -2,7 +2,8 @@
 > This is personal portfolio website version 2.0.
 
 <div align="center">
-  <img alt="Logo" src="https://raw.githubusercontent.com/bchiang7/v4/main/src/images/logo.png" width="100" />
+  <img alt="Logo" src="https://raw.githubusercontent.com/SaiPranay2011/Portfolio-V2/master/public/assets/Logo/sp-logo.png" width="100" />
+  https://github.com/SaiPranay2011/Portfolio-V2/master/public/assets/Logo/logo-no-background.svg
 </div>
 <h1 align="center">
   Sai Pranay Portfolio - V1
