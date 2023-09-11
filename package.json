@@ -3,12 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "env-cmd -f env/.env.local next dev",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "build:prod": "env-cmd -f env/.env.prod yarn build",
-    "build:local": "env-cmd -f env/.env.local yarn build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
