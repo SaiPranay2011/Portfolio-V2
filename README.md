@@ -8,7 +8,7 @@
   Sai Pranay Portfolio - V1
 </h1>
 <p align="center">
-  The second iteration of Portfolio built with NextJs and hosted with Github pages
+  The second iteration of <a href="https://saipranay2011.github.io/Portfolio-V2/" target="_blank">Portfolio</a> built with NextJs and hosted with Github pages
 </p>
 
 ![demo](https://raw.githubusercontent.com/SaiPranay2011/Portfolio-V2/master/public/assets/PortfolioV2.png)
