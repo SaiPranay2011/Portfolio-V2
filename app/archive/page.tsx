@@ -28,7 +28,7 @@ const Archive = () => {
                 <tr>
                   <th>Year</th>
                   <th>Title</th>
-                  <th className={styles.hideOnMobile}>Made at</th>
+                  {/* <th className={styles.hideOnMobile}>Made at</th> */}
                   <th className={styles.hideOnMobile}>Built with</th>
                   <th>Link</th>
                 </tr>
@@ -43,13 +43,13 @@ const Archive = () => {
                       <tr key={i}>
                         <td className={cx(styles.overline,styles.year)}>{date}</td>
                         <td className={styles.archiveTitle}>{title}</td>
-                        <td
+                        {/* <td
                           className={cx(
                             styles.hideOnMobile,
                             styles.company
                           )}>
                           {company ? <span>{company}</span> : <span>—</span>}
-                        </td>
+                        </td> */}
                         <td className={cx(styles.tech,styles.hideOnMobile)}>
                         {tech?.length > 0 &&
                           tech.map((item:any, i:any) => (
