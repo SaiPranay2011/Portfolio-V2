@@ -77,14 +77,15 @@ const TopBar = ({ setMenuOpen, menuOpen }: any) => {
             </ol>
           )}
         </div>
-        <div className={styles.resume}>
+        <div></div>
+        {/* <div className={styles.resume}>
           <Link
             href={"/Resume.pdf"}
             target="_blank"
             className={styles.resumeButton}>
             Resume
           </Link>
-        </div>
+        </div> */}
       </nav>
 
       {/* <div>

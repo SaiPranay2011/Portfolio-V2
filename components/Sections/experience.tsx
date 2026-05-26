@@ -44,8 +44,8 @@ const Experience = () => {
                       <Link href={url} className={styles.inlineLink}>
                         {company}
                       </Link>
-                      <span className={styles.location}>{location}</span>
                     </span>
+                    <div className={styles.location}>{location}</div>
                    
                   </h3>
                   <p className={styles.range}>{range}</p>
